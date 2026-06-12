@@ -22,50 +22,35 @@ int main()
         file >> p->id >> p->name >> p->math >> p->english >> p->chinese;
         p->sum = p->chinese + p->english + p->math;
         student *q = head;
+        
+        int d = 1;
+        while (q && (q->sum > p->sum || (q->sum == p->sum && q->id < p->id)))
+        {
+            q = q->r;
+            d++;
+        }
         if (!q)
         {
-            p->l = NULL;
-            p->r = head;
-            head = p;
-            rear = p;
-            p->rank = 1;
-        }
-        else
-        {
-            int d = 1;
-            while (q && q->sum > p->sum)
-            {
-                q = q->r;
-                d++;
-            }
-            while (q && q->id < p->id)
-            {
-                q = q->r;
-                d++;
-            }
-            if (!q)
-            {
-                p->r = rear->r;
-                p->l = rear;
+            p->r = NULL;
+            p->l = rear;
+            if (!rear) {
                 rear->r = p;
-                rear = p;
             }
-            else if (!q->l && q->r)
-            {
-                p->r = q;
-                p->l = q->l;
-                q->l = p;
+            if (!head) {
                 head = p;
             }
-            else if (q->l && q->r)
-            {
-                p->r = q;
-                p->l = q->l;
+            rear = p;
+        } else {
+            p->r = q;
+            p->l = q->l;
+            q->l = p;
+            if (!q->l) {
+                head = p;
+            } else {
                 p->l->r = p;
-                q->l = p;
             }
-            p->rank = d;
         }
+        p->rank = d;
     }
     file.close();
     while (1)

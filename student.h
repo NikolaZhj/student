@@ -1,3 +1,6 @@
+#ifndef STUDENT_H
+#define STUDENT_H
+
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -21,3 +24,5 @@ void f8();
 void f9();
 void f10();
 void f11();
+
+#endif

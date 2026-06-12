@@ -9,8 +9,8 @@ void f1() {
             ofstream file("student.txt");
             student *p = head;
             int n = 0;
-            if (!rear) {
-                int n = rear->rank;
+            if (rear) {
+                n = rear->rank;
             }
             file << n << '\n';
             while (p) {
@@ -42,7 +42,7 @@ void f1() {
         student *q = head;
         if (!q) {
             p->l = NULL;
-            p->r = head;
+            p->r = NULL;
             head = p;
             rear = p;
             p->rank = 1;

@@ -1,17 +1,4 @@
 #include "student.h"
-#include <bits/stdc++.h>
-#include "f1.cpp"
-#include "f2.cpp"
-#include "f3.cpp"
-#include "f4.cpp"
-#include "f5.cpp"
-#include "f6.cpp"
-#include "f7.cpp"
-#include "f8.cpp"
-#include "f9.cpp"
-#include "f10.cpp"
-#include "f11.cpp"
-using namespace std;
 
 student *head, *rear;
 

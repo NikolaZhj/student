@@ -17,38 +17,13 @@ int main()
     for (int i = 0; i < n; i++)
     {
         student *p = new student;
+
         file >> p->id >> p->name >> p->math >> p->english >> p->chinese;
+
         p->sum = p->chinese + p->english + p->math;
-        student *q = head;
         
-        int d = 1;
-        while (q && (q->sum > p->sum || (q->sum == p->sum && q->id < p->id)))
-        {
-            q = q->r;
-            d++;
-        }
-        if (!q)
-        {
-            p->r = NULL;
-            p->l = rear;
-            if (rear) {
-                rear->r = p;
-            }
-            if (!head) {
-                head = p;
-            }
-            rear = p;
-        } else {
-            p->r = q;
-            p->l = q->l;
-            if (q->l) {
-                q->l->r = p;
-            } else {
-                head = p;
-            }
-            q->l = p;
-        }
-        p->rank = d;
+
+        insertStudent(p);
     }
     file.close();
     while (1)
@@ -60,7 +35,7 @@ int main()
         cout << "| 3:根据姓名查找学生                      |\n";
         cout << "| 4:根据学号查找学生                      |\n";
         cout << "| 5:按排名查找学生                        |\n";
-        cout << "| 6:在指定位置删除学生                    |\n";
+        cout << "| 6:插入到表中指定位置                    |\n";
         cout << "| 7:按姓名删除学生                        |\n";
         cout << "| 8:按学号删除学生                        |\n";
         cout << "| 9:按位置删除学生                        |\n";

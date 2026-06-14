@@ -49,6 +49,11 @@ int main()
             q->l = p;
         }
         p->rank = d;
+        student *t = p->r;
+        while (t) {
+            t->rank++;
+            t = t->r;
+        }
     }
     file.close();
     while (1)

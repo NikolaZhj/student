@@ -26,4 +26,5 @@ void f10();
 void f11();
 void insertStudent(student *p);
 void updateRank();
+void printStudent(student *p);
 #endif

@@ -16,6 +16,9 @@ void f1() {
             }
 
             file << n << '\n';
+
+            p = head;
+            
             while (p) {
                 file << right << setw(15) << p->id;
                 file << right << setw(15) << p->name;

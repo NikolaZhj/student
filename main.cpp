@@ -18,7 +18,11 @@ int main()
     {
         student *p = new student;
 
-        file >> p->id >> p->name >> p->math >> p->english >> p->chinese;
+        if (!(file >> p->id >> p->name >> p->math >> p->english >> p->chinese)) {
+        cout << "第 " << i + 1 << " 个学生信息读取失败，请检查 student.txt 文件\n";
+        delete p;
+        break;
+    }
 
         p->sum = p->chinese + p->english + p->math;
         

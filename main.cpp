@@ -26,44 +26,8 @@ int main()
 
         p->sum = p->chinese + p->english + p->math;
         
-<<<<<<< HEAD
 
         insertStudent(p);
-=======
-        int d = 1;
-        while (q && (q->sum > p->sum || (q->sum == p->sum && q->id < p->id)))
-        {
-            q = q->r;
-            d++;
-        }
-        if (!q)
-        {
-            p->r = NULL;
-            p->l = rear;
-            if (rear) {
-                rear->r = p;
-            }
-            if (!head) {
-                head = p;
-            }
-            rear = p;
-        } else {
-            p->r = q;
-            p->l = q->l;
-            if (q->l) {
-                q->l->r = p;
-            } else {
-                head = p;
-            }
-            q->l = p;
-        }
-        p->rank = d;
-        student *t = p->r;
-        while (t) {
-            t->rank++;
-            t = t->r;
-        }
->>>>>>> c01df01 (修复后续节点的排名rank未更新的bug)
     }
     file.close();
     while (1)

@@ -10,13 +10,14 @@ void f1() {
 
             student *p = head;
             int n = 0;
+            
             if (rear) {
                 n = rear->rank;
             }
             file << n << '\n';
 
             p = head;
-            
+
             while (p) {
                 file << right << setw(15) << p->id;
                 file << right << setw(15) << p->name;

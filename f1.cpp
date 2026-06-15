@@ -10,11 +10,9 @@ void f1() {
 
             student *p = head;
             int n = 0;
-            while (p) {
-                n++;
-                p = p->r;
+            if (rear) {
+                n = rear->rank;
             }
-
             file << n << '\n';
 
             p = head;

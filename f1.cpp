@@ -47,32 +47,39 @@ void f1() {
             rear = p;
             p->rank = 1;
         } else {
-            int d = 1;
-            while (q && q->sum > p->sum) {
-                q = q->r;
-                d++;
-            }
-            while (q && q->id < p->id) {
-                q = q->r;
-                d++;
-            }
-            if (!q) {
-                p->r = rear->r;
-                p->l = rear;
+                    int d = 1;
+        while (q && (q->sum > p->sum || (q->sum == p->sum && q->id < p->id)))
+        {
+            q = q->r;
+            d++;
+        }
+        if (!q)
+        {
+            p->r = NULL;
+            p->l = rear;
+            if (rear) {
                 rear->r = p;
-                rear = p;
-            } else if (!q->l && q->r) {
-                p->r = q;
-                p->l = q->l;
-                q->l = p;
-                head = p;
-            } else if (q->l && q->r) {
-                p->r = q;
-                p->l = q->l;
-                p->l->r = p;
-                q->l = p;
             }
-            p->rank = d;
+            if (!head) {
+                head = p;
+            }
+            rear = p;
+        } else {
+            p->r = q;
+            p->l = q->l;
+            if (q->l) {
+                q->l->r = p;
+            } else {
+                head = p;
+            }
+            q->l = p;
+        }
+        p->rank = d;
+        student *t = p->r;
+        while (t) {
+            t->rank++;
+            t = t->r;
+        }
         }
     }
 }

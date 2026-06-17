@@ -1,6 +1,7 @@
 #include "student.h"
 void f11()
 {
+    cout << "当前学生人数：\n";
     if (!rear)
     {
         cout << 0 << '\n';

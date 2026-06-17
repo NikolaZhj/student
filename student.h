@@ -24,4 +24,5 @@ extern student *head, *rear;
 #include "f9.cpp"
 #include "f10.cpp"
 #include "f11.cpp"
+#include "f12.cpp"
 #endif

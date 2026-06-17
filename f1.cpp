@@ -1,6 +1,7 @@
 #include "student.h"
 
 void f1() {
+    cout << "输入学生信息 (输入 'q' 结束): ";
     cout << "请输入学生信息:\n格式:学生id  学生姓名  数学  英语  语文\n";
     while (1) {
         string s;
